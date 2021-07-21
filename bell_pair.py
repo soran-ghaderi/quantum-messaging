@@ -10,3 +10,9 @@ class Bell_pair:
         self.qubit_one = quantum_engine.allocate_qubit()
         # Qubit two is the receiver's qubit, and will be used to re-create the message state
         self.qubit_two = quantum_engine.allocate_qubit()
+
+        ''' 
+        Hadamard gate to put Qubit one in superposition
+        This sets the value of a equal probability of being 1 or 0
+        '''
+        H | self.qubit_one
