@@ -16,3 +16,9 @@ class Bell_pair:
         This sets the value of a equal probability of being 1 or 0
         '''
         H | self.qubit_one
+
+        '''
+        CNOT gate to flip the second Qubit conditionally
+        on the first qubit being in the state |1⟩
+        '''
+        CNOT | (self.qubit_one, self.qubit_two)
