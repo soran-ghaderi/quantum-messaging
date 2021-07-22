@@ -22,3 +22,5 @@ class Bell_pair:
         on the first qubit being in the state |1⟩
         '''
         CNOT | (self.qubit_one, self.qubit_two)
+
+        return self.qubit_one, self.qubit_two
