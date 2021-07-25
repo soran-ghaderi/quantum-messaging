@@ -21,3 +21,4 @@ def message_reciever(quantum_engine, message, qubit_two):
     quantum_engine.flush()
 
     recieved_bit = int(qubit_two)
+    return recieved_bit
