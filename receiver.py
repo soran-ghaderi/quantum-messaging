@@ -20,5 +20,13 @@ def message_reciever(quantum_engine, message, qubit_two):
 
     quantum_engine.flush()
 
-    recieved_bit = int(qubit_two)
-    return recieved_bit
+    received_bit = int(qubit_two)
+    return received_bit
+
+
+def send_receive(bit=0,quantum_engine=''):
+    # Create bell pair
+    bp = Bell_pair()
+    qubit_one, qubit_two = bp.create_bell_pair(quantum_engine)
+    # entangle the bit with the first qubit
+    classical_encoded_message = create_message(quantum_engine=quantum_engine, qubit_one=qubit_one, message_value=bit)
