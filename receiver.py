@@ -30,3 +30,6 @@ def send_receive(bit=0,quantum_engine=''):
     qubit_one, qubit_two = bp.create_bell_pair(quantum_engine)
     # entangle the bit with the first qubit
     classical_encoded_message = create_message(quantum_engine=quantum_engine, qubit_one=qubit_one, message_value=bit)
+
+    # Teleport the bit and return it back
+    return message_reciever(quantum_engine, classical_encoded_message, qubit_two)
