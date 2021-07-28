@@ -28,6 +28,12 @@ class CustomFormatter(logging.Formatter):
 
 
 def send_full_message(message='DataEspresso.com',quantum_engine=''):
+    '''
+    The binary message is divided into a list of words represented in binary.
+    We iterate through each word, and then each bit in the letter.
+    Then we append the bits to a list to get back the letter representation
+    '''
+
     # Convert the string into binary values
     binary_encoded_message = [bin(ord(x))[2:].zfill(8) for x in message]
     print('Message to send: ', message)
