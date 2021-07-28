@@ -24,3 +24,11 @@ class CustomFormatter(logging.Formatter):
         log_fmt = self.FORMATS.get(record.levelno)
         formatter = logging.Formatter(log_fmt)
         return formatter.format(record)
+
+
+
+def send_full_message(message='DataEspresso.com',quantum_engine=''):
+    # Convert the string into binary values
+    binary_encoded_message = [bin(ord(x))[2:].zfill(8) for x in message]
+    print('Message to send: ', message)
+    print('Binary message to send: ', binary_encoded_message)
