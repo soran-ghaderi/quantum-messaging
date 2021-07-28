@@ -40,3 +40,15 @@ def send_full_message(message='DataEspresso.com',quantum_engine=''):
             received_bits = received_bits + str(send_receive(int(bit), quantum_engine))
         received_bytes_list.append(received_bits)
 
+    binary_to_string = ''.join([chr(int(x, 2)) for x in received_bytes_list])
+    print('Received Binary message: ', received_bytes_list)
+    # print('Received message: ', binary_to_string)
+    logging.basicConfig(level=logging.DEBUG)
+    logger = logging.getLogger('Receiver')
+    ch = logging.StreamHandler()
+    ch.setLevel(logging.DEBUG)
+    ch.setFormatter(CustomFormatter())
+
+    # logger.addHandler(ch)
+    # logger.warning('Protocol problem: %s', 'connection reset', extra={2:3})
+    logger.debug('The message successfully received: %s', message)
