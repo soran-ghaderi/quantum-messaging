@@ -32,3 +32,11 @@ def send_full_message(message='DataEspresso.com',quantum_engine=''):
     binary_encoded_message = [bin(ord(x))[2:].zfill(8) for x in message]
     print('Message to send: ', message)
     print('Binary message to send: ', binary_encoded_message)
+
+    received_bytes_list = []
+    for letter in binary_encoded_message:
+        received_bits = ''
+        for bit in letter:
+            received_bits = received_bits + str(send_receive(int(bit), quantum_engine))
+        received_bytes_list.append(received_bits)
+
