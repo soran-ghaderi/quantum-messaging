@@ -1,5 +1,5 @@
 from projectq import MainEngine
-from transmitter import send_full_message
+from communication.transmitter import send_full_message
 
 if __name__ == '__main__':
 

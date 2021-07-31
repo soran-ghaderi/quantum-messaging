@@ -1,9 +1,9 @@
 from projectq.ops import X, Z, Measure
 
-from bell_pair import Bell_pair
-from message import create_message
+from base.bell_pair import Bell_pair
+from base.message import create_message
 
-def message_reciever(quantum_engine, message, qubit_two):
+def message_receiver(quantum_engine, message, qubit_two):
     '''
     Pauli-X and/or Pauli-Z gates are applied to the Qubit,
     conditionally on the values in the message.
@@ -32,4 +32,4 @@ def send_receive(bit=0,quantum_engine=''):
     classical_encoded_message = create_message(quantum_engine=quantum_engine, qubit_one=qubit_one, message_value=bit)
 
     # Teleport the bit and return it back
-    return message_reciever(quantum_engine, classical_encoded_message, qubit_two)
+    return message_receiver(quantum_engine, classical_encoded_message, qubit_two)
